@@ -1,0 +1,172 @@
+﻿.article-row,
+.management-row,
+.user-row {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  text-align: start;
+  box-shadow: none;
+}
+
+.article-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 0.82rem;
+}
+
+.article-row:hover,
+.management-row:hover,
+.user-row:hover {
+  background: #fbfdff;
+  border-color: var(--line-strong);
+  box-shadow: none;
+  transform: none;
+}
+
+.article-row.selected {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+}
+
+.article-row span,
+.management-row strong,
+.user-row strong {
+  overflow-wrap: anywhere;
+}
+
+.article-row small {
+  color: var(--muted);
+}
+
+.reader-panel {
+  min-height: 29rem;
+}
+
+.reader-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.reader-kicker span {
+  padding: 0.22rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+}
+
+.reader-body {
+  white-space: pre-wrap;
+  line-height: 1.72;
+  margin: 1rem 0;
+  color: #283345;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+.course-card {
+  padding: 1rem;
+}
+
+.course-card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.course-card p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.course-card ol {
+  padding-inline-start: 1.2rem;
+  margin-bottom: 0;
+}
+
+.form-shell {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.field span {
+  color: var(--muted);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.switch-row input {
+  width: auto;
+}
+
+.button-row,
+.action-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.article-multiselect {
+  min-height: 10rem;
+  padding: 0.35rem;
+  background: var(--surface-soft);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.42);
+}
+
+.connection-modal {
+  width: min(62rem, 100%);
+  max-height: min(44rem, calc(100vh - 3rem));
+  display: grid;
+  grid-template-rows: auto auto minmax(22rem, 1fr);
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.connection-canvas {
+  position: relative;
+  min-height: 28rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: crosshair;
+  background:
+    linear-gradient(90deg, rgba(226, 232, 240, 0.58) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(226, 232, 240, 0.58) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(15, 118, 110, 0.12), transparent 18rem),
+    #fbfdff;
+  background-size: 42px 42px, 42px 42px, auto, auto;
+}
