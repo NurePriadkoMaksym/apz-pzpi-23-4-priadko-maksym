@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pythonwiki-api
+  namespace: pythonwiki
+spec:
+  type: LoadBalancer
+  selector:
+    app: pythonwiki-api
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080

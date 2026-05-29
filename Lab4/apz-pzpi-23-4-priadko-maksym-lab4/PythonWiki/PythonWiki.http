@@ -1,0 +1,6 @@
+@PythonWiki_HostAddress = http://localhost:5135
+
+GET {{PythonWiki_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

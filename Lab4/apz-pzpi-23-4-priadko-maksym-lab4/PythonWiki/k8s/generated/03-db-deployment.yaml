@@ -1,0 +1,47 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonwiki-db
+  namespace: pythonwiki
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pythonwiki-db
+  template:
+    metadata:
+      labels:
+        app: pythonwiki-db
+    spec:
+      containers:
+        - name: sqlserver
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          ports:
+            - containerPort: 1433
+          env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: MSSQL_PID
+              value: "Developer"
+            - name: MSSQL_SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pythonwiki-db-secret
+                  key: MSSQL_SA_PASSWORD
+          volumeMounts:
+            - name: db-data
+              mountPath: /var/opt/mssql
+          readinessProbe:
+            tcpSocket:
+              port: 1433
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 1433
+            initialDelaySeconds: 60
+            periodSeconds: 20
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: pythonwiki-db-data

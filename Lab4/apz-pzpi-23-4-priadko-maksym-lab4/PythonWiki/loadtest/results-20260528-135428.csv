@@ -1,0 +1,2 @@
+﻿"Started","Url","Users","RequestsPerUser","TotalRequests","Success","Failed","DurationSeconds","RequestsPerSecond","AvgLatencyMs","P95LatencyMs","P99LatencyMs"
+"2026-05-28T13:53:51","http://localhost:8080/swagger","20","50","1000","1000","0","37,29","26,82","52,02","20,35","2230,68"
